@@ -27,6 +27,7 @@ ENV CONDA_DIR /opt/conda
 ADD https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh /tmp/miniconda.sh
 RUN bash /tmp/miniconda.sh -b -p /opt/conda
 ENV PATH=$CONDA_DIR/bin:$PATH
+RUN conda update -y conda
 
 # Cleanup files and directories
 # from the build.

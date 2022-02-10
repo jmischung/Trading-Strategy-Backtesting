@@ -1,0 +1,21 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - hvplot
+  - jupyterlab
+  - matplotlib
+  - notebook
+  - numpy
+  - pandas
+  - psycopg2-binary
+  - psycopg2
+  - python-dotenv
+  - pyviz
+  - requests
+  - scikit-learn
+  - scipy
+  - seaborn
+  - sqlalchemy
+  - pip:
+      - alpaca-trade-api
