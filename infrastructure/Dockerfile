@@ -21,8 +21,8 @@ RUN apt-get autoclean && apt-get update && \
     vim \
     wget
 
-# Install miniconda and
-# add conda to path.
+# Install miniconda, packages,
+# and add conda to path.
 ENV CONDA_DIR /opt/conda
 ADD https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh /tmp/miniconda.sh
 RUN bash /tmp/miniconda.sh -b -p /opt/conda
