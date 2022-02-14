@@ -29,11 +29,23 @@ RUN bash /tmp/miniconda.sh -b -p /opt/conda
 ENV PATH=$CONDA_DIR/bin:$PATH
 COPY environment_conda.yml /tmp
 RUN conda update -y conda && \
-    conda init && \
-    bash -c "source /root/.bashrc" && \
     conda env update --file /tmp/environment_conda.yml
 
 # Cleanup files and directories
 # from the build.
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+EXPOSE 8888
+
+# Add a new user and change to
+# non-root privilage.
+RUN useradd -ms /bin/bash --uid 1000 quant
+USER quant
+RUN conda init && \
+    bash -c "source /home/quant/.bashrc" && \
+    mkdir /home/quant/notebooks
+WORKDIR /home/quant/notebooks
+
+# Configure container startup
+CMD ["sh", "-c", "jupyter-lab --ip 0.0.0.0 --port 8888 --no-browser"]
