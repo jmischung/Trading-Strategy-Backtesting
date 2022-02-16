@@ -30,6 +30,9 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 COPY environment_conda.yml /tmp
 RUN conda update -y conda && \
     conda env update --file /tmp/environment_conda.yml
+RUN jupyter labextension update --all && \
+    jupyter lab build -y && \
+    jupyter lab clean -y \
 
 # Cleanup files and directories
 # from the build.
@@ -42,10 +45,18 @@ EXPOSE 8888
 # non-root privilage.
 RUN useradd -ms /bin/bash --uid 1000 quant
 USER quant
+
+# Configure Jupyter Lab.
 RUN conda init && \
     bash -c "source /home/quant/.bashrc" && \
     mkdir /home/quant/notebooks
+COPY jup_lab_settings /home/quant/.jupyter
 WORKDIR /home/quant/notebooks
 
-# Configure container startup
+# Set non-root user as the owner of their .jupyter directory.
+USER root
+RUN chown -R quant /home/quant/.jupyter
+USER quant
+
+# Configure container startup.
 CMD ["sh", "-c", "jupyter-lab --ip 0.0.0.0 --port 8888 --no-browser"]

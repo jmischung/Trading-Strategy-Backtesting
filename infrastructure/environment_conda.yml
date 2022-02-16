@@ -2,13 +2,14 @@ name: base
 channels:
   - plotly
   - pyviz
-  - conda-forge
   - anaconda
+  - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=4.5=1_gnu
   - _sysroot_linux-64_curr_repodata_hack=3=haa98f57_10
+  - ansi2html=1.7.0=py39hf3d152e_0
   - anyio=3.5.0=py39hf3d152e_0
   - argon2-cffi=20.1.0=py39h27cfd23_1
   - arviz=0.11.4=pyhd8ed1ab_0
@@ -23,6 +24,7 @@ dependencies:
   - bokeh=2.4.2=py39h06a4308_0
   - bottleneck=1.3.2=py39hdd57654_1
   - brotli=1.0.9=he6710b0_2
+  - brotli-python=1.0.9=py39he80948d_5
   - brotlipy=0.7.0=py39h27cfd23_1003
   - bzip2=1.0.8=h7f98852_4
   - c-ares=1.17.1=h7f98852_1
@@ -41,13 +43,17 @@ dependencies:
   - curl=7.76.1=h979ede3_1
   - cycler=0.11.0=pyhd3eb1b0_0
   - cython=0.29.24=py39he80948d_0
+  - dash=2.1.0=pyhd8ed1ab_0
   - dbus=1.13.18=hb2f20db_0
   - debugpy=1.5.1=py39h295c915_0
   - decorator=5.1.1=pyhd3eb1b0_0
   - defusedxml=0.7.1=pyhd3eb1b0_0
   - entrypoints=0.3=py39h06a4308_0
   - ephem=4.0.0.2=py39h3811e60_0
+  - expat=2.2.10=he6710b0_2
   - faker=12.0.0=pyhd8ed1ab_0
+  - flask=2.0.3=pyhd8ed1ab_0
+  - flask-compress=1.10.1=pyhd8ed1ab_0
   - fontconfig=2.13.1=h6c09931_0
   - fonttools=4.25.0=pyhd3eb1b0_0
   - freetype=2.11.0=h70c0345_0
@@ -75,12 +81,16 @@ dependencies:
   - ipykernel=6.4.1=py39h06a4308_1
   - ipython=7.31.1=py39h06a4308_0
   - ipython_genutils=0.2.0=pyhd3eb1b0_1
+  - ipywidgets=7.6.5=pyhd8ed1ab_0
+  - itsdangerous=2.0.1=pyhd8ed1ab_0
   - jedi=0.18.1=py39h06a4308_1
   - jinja2=3.0.2=pyhd3eb1b0_0
   - joblib=0.17.0=py_0
   - jpeg=9d=h7f8727e_0
   - json5=0.9.5=pyh9f0ad1d_0
   - jsonschema=3.2.0=pyhd3eb1b0_2
+  - jupyter-dash=0.4.0=pyhd8ed1ab_0
+  - jupyter_bokeh=3.0.4=pyhd8ed1ab_0
   - jupyter_client=7.1.2=pyhd3eb1b0_0
   - jupyter_core=4.9.1=py39h06a4308_0
   - jupyter_server=1.13.5=pyhd8ed1ab_0
@@ -141,13 +151,13 @@ dependencies:
   - ncurses=6.3=h7f8727e_2
   - nest-asyncio=1.5.1=pyhd3eb1b0_0
   - netcdf4=1.5.7=nompi_py39hc6dca20_100
-  - nodejs=6.13.1=0
+  - nodejs=12.4.0=he1b5a44_0
   - notebook=6.4.6=py39h06a4308_0
   - numexpr=2.8.1=py39h6abb31d_0
   - numpy=1.21.2=py39h20f2e39_0
   - numpy-base=1.21.2=py39h79a1101_0
   - olefile=0.46=pyhd3eb1b0_0
-  - openssl=1.1.1k=h7f98852_0
+  - openssl=1.1.1m=h7f8727e_0
   - packaging=20.4=py_0
   - pandas=1.3.5=py39h8c16a72_0
   - pandocfilters=1.5.0=pyhd3eb1b0_0
@@ -163,6 +173,7 @@ dependencies:
   - prometheus_client=0.13.1=pyhd3eb1b0_0
   - prompt-toolkit=3.0.20=pyhd3eb1b0_0
   - prophet=1.0.1=py39hf3d152e_5
+  - psutil=5.8.0=py39h27cfd23_1
   - psycopg2=2.8.6=py39h3c74f83_1
   - psycopg2-binary=2.8.6=pyhd8ed1ab_3
   - ptyprocess=0.7.0=pyhd3eb1b0_2
@@ -190,6 +201,7 @@ dependencies:
   - quandl=3.6.1=py39h06a4308_0
   - readline=8.1.2=h7f8727e_1
   - requests=2.27.1=pyhd3eb1b0_0
+  - retrying=1.3.3=py_2
   - ruamel_yaml=0.15.100=py39h27cfd23_0
   - scikit-learn=1.0.2=py39h51133e4_1
   - scipy=1.7.3=py39hc147768_0
@@ -220,7 +232,9 @@ dependencies:
   - wcwidth=0.2.5=pyhd3eb1b0_0
   - webencodings=0.5.1=py39h06a4308_1
   - websocket-client=1.2.3=pyhd8ed1ab_0
+  - werkzeug=2.0.3=pyhd8ed1ab_1
   - wheel=0.35.1=py_0
+  - widgetsnbextension=3.5.2=py39hf3d152e_1
   - xarray=0.21.1=pyhd8ed1ab_0
   - xz=5.2.5=h7b6447c_0
   - yaml=0.2.5=h7b6447c_0
@@ -234,6 +248,7 @@ dependencies:
     - async-timeout==3.0.1
     - chardet==3.0.4
     - deprecation==2.1.0
+    - impyute==0.0.8
     - msgpack==1.0.2
     - multidict==6.0.2
     - websockets==9.1
