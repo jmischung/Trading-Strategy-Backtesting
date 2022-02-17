@@ -59,4 +59,4 @@ RUN chown -R ds /home/ds/.jupyter
 USER ds
 
 # Configure container startup.
-CMD ["jupyter", "lab",  "--ip 0.0.0.0", "--port 8888", "--no-browser"]
+CMD ["sh", "-c", "jupyter-lab --ip 0.0.0.0 --port 8888"]
