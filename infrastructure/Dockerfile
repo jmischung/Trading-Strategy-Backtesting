@@ -43,20 +43,20 @@ EXPOSE 8888
 
 # Add a new user and change to
 # non-root privilage.
-RUN useradd -ms /bin/bash --uid 1000 quant
-USER quant
+RUN useradd -ms /bin/bash --uid 1000 ds
+USER ds
 
 # Configure Jupyter Lab.
 RUN conda init && \
-    bash -c "source /home/quant/.bashrc" && \
-    mkdir /home/quant/notebooks
-COPY jup_lab_settings /home/quant/.jupyter
-WORKDIR /home/quant/notebooks
+    bash -c "source /home/ds/.bashrc" && \
+    mkdir /home/ds/notebooks
+COPY jup_lab_settings /home/ds/.jupyter
+WORKDIR /home/ds/notebooks
 
 # Set non-root user as the owner of their .jupyter directory.
 USER root
-RUN chown -R quant /home/quant/.jupyter
-USER quant
+RUN chown -R ds /home/ds/.jupyter
+USER ds
 
 # Configure container startup.
-CMD ["sh", "-c", "jupyter-lab --ip 0.0.0.0 --port 8888 --no-browser"]
+CMD ["jupyter", "lab",  "--ip 0.0.0.0", "--port 8888", "--no-browser"]
