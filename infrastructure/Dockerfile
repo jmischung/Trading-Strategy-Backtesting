@@ -12,6 +12,7 @@ LABEL maintainer="Josh Mischung josh.mischung@gmail.com"
 RUN apt-get autoclean && apt-get update && \
     apt-get upgrade -y && apt-get upgrade -y bash && \
     apt-get install -qq \
+    apt-utils \
     build-essential \
     bzip2 \
     gcc \
