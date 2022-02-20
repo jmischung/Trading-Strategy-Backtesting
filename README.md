@@ -1,6 +1,6 @@
-# Event-Driven Backtest
+# Trading Strategy Backtesting
 
-This project builds an event-driven backtester to determine the profitability of trading strategies before deployment.
+This project utilizes vectorized and event-based backtesting to quickly vet new ideas for trading strategies, then more rigorously test strategies that show promise.
 
 
 ## Technologies

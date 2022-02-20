@@ -30,17 +30,15 @@ RUN bash /tmp/miniconda.sh -b -p /opt/conda
 ENV PATH=$CONDA_DIR/bin:$PATH
 COPY environment_conda.yml /tmp
 RUN conda update -y conda && \
-    conda env update --file /tmp/environment_conda.yml
-RUN jupyter labextension update --all && \
+    conda env update --file /tmp/environment_conda.yml && \
+    jupyter labextension update --all && \
     jupyter lab build -y && \
-    jupyter lab clean -y \
+    jupyter lab clean -y
 
 # Cleanup files and directories
 # from the build.
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-EXPOSE 8888
 
 # Add a new user and change to
 # non-root privilage.
@@ -58,6 +56,8 @@ WORKDIR /home/ds/notebooks
 USER root
 RUN chown -R ds /home/ds/.jupyter
 USER ds
+
+EXPOSE 8888
 
 # Configure container startup.
 CMD ["sh", "-c", "jupyter-lab --ip 0.0.0.0 --port 8888"]
