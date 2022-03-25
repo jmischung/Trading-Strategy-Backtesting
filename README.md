@@ -10,6 +10,7 @@ The project utilizes python 3.9 along with the following packages:
 - [pandas](https://pandas.pydata.org/) - Python software library for data manipulation.
 - [Pandas Data Reader](https://pandas-datareader.readthedocs.io/en/latest/) - Remote data access for pandas
 - [YFinance](https://pypi.org/project/yfinance/) - Open source tool for Yahoo's publicly available API, for education and research purposes
+- [Sklearn](https://scikit-learn.org/stable/index.html) - Machine learning tools for predictive data analysis
 
 Other technologies that were utilized within this project are listed here:
 
@@ -25,13 +26,37 @@ Clone the repository to your desired location, and confirm that python 3.9 or gr
 
 ```python
 pip install pandas
-pip install pandas-market-calendars
+pip install pandas-datareader
+pip install -U scikit-learn
 pip install yfinance
+pip install matplotlib
 ```
 
 ## Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. Iaculis eu non diam phasellus vestibulum. Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse.
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+import pandas_datareader.data as pdr
+import yfinance as yf
+
+from sklearn.preprocessing import RobustScaler
+from sklearn.pipeline import Pipeline
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.discriminant_analysis import (
+    LinearDiscriminantAnalysis as LDA,
+    QuadraticDiscriminantAnalysis as QDA
+)
+from sklearn.svm import LinearSVC, SVC
+
+from sklearn.metrics import classification_report
+```
+
+
 
 ## Contributors
 
