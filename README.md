@@ -1,6 +1,6 @@
 # Trading Strategy Backtesting
 
-This projects aim is to determine the optimal ML model(s) for a given strategy. The model(s) chosen at the end of the notebook can be set as a constant, along with the strategy, allowing for further exploration of feature engineering and hyperparameter tuning.
+This project's aim is to determine the optimal ML model(s) for a given strategy. The model(s) chosen at the end of the notebook can be set as a constant, along with the strategy, allowing for further exploration of feature engineering and hyperparameter tuning.
 
 
 ## Technologies
