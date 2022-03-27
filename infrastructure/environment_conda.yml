@@ -2,12 +2,13 @@ name: base
 channels:
   - plotly
   - pyviz
-  - anaconda
   - conda-forge
+  - anaconda
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=4.5=1_gnu
+  - _py-xgboost-mutex=2.0=cpu_0
   - _sysroot_linux-64_curr_repodata_hack=3=haa98f57_10
   - ansi2html=1.7.0=py39hf3d152e_0
   - anyio=3.5.0=py39hf3d152e_0
@@ -28,15 +29,18 @@ dependencies:
   - brotlipy=0.7.0=py39h27cfd23_1003
   - bzip2=1.0.8=h7f98852_4
   - c-ares=1.17.1=h7f98852_1
-  - ca-certificates=2021.10.8=ha878542_0
-  - certifi=2021.10.8=py39hf3d152e_1
+  - ca-certificates=2020.10.14=0
+  - category_encoders=2.3.0=pyhd8ed1ab_0
+  - certifi=2021.10.8=py39h06a4308_2
   - cffi=1.15.0=py39hd667e15_1
   - cftime=1.5.0=py39hce5d2b2_0
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
   - click=8.0.3=py39hf3d152e_1
   - cmdstanpy=0.9.68=pyhd8ed1ab_0
+  - colorama=0.4.4=pyhd3eb1b0_0
   - colorcet=3.0.0=py_0
-  - conda=4.11.0=py39hf3d152e_0
+  - conda=4.12.0=py39h06a4308_0
+  - conda-content-trust=0.1.1=pyhd3eb1b0_0
   - conda-package-handling=1.7.3=py39h27cfd23_1
   - convertdate=2.4.0=pyhd8ed1ab_0
   - cryptography=36.0.0=py39h9ce1e76_0
@@ -74,6 +78,7 @@ dependencies:
   - hvplot=0.7.3=pyh6c4a22f_0
   - icu=58.2=he6710b0_3
   - idna=3.3=pyhd3eb1b0_0
+  - imbalanced-learn=0.9.0=pyhd8ed1ab_0
   - importlib-metadata=4.8.2=py39h06a4308_0
   - importlib_metadata=4.8.2=hd3eb1b0_0
   - inflection=0.5.1=py39h06a4308_0
@@ -128,9 +133,12 @@ dependencies:
   - libwebp=1.2.0=h89dd481_0
   - libwebp-base=1.2.0=h27cfd23_0
   - libxcb=1.14=h7b6447c_0
+  - libxgboost=1.5.0=h295c915_1
   - libxml2=2.9.12=h03d6c58_0
+  - libxslt=1.1.34=hc22bd24_0
   - libzip=1.8.0=h4de3113_0
   - lunarcalendar=0.0.9=py_0
+  - lxml=4.8.0=py39h1f438cf_0
   - lz4-c=1.9.3=h295c915_1
   - markdown=3.3.4=py39h06a4308_0
   - markupsafe=2.0.1=py39h27cfd23_0
@@ -160,10 +168,12 @@ dependencies:
   - openssl=1.1.1m=h7f8727e_0
   - packaging=20.4=py_0
   - pandas=1.3.5=py39h8c16a72_0
+  - pandas-datareader=0.9.0=py_0
   - pandocfilters=1.5.0=pyhd3eb1b0_0
   - panel=0.12.6=py_0
   - param=1.12.0=py_0
   - parso=0.8.3=pyhd3eb1b0_0
+  - patsy=0.5.2=pyhd8ed1ab_0
   - pcre=8.45=h295c915_0
   - pexpect=4.8.0=pyhd3eb1b0_3
   - pickleshare=0.7.5=pyhd3eb1b0_1003
@@ -177,10 +187,12 @@ dependencies:
   - psycopg2=2.8.6=py39h3c74f83_1
   - psycopg2-binary=2.8.6=pyhd8ed1ab_3
   - ptyprocess=0.7.0=pyhd3eb1b0_2
+  - py-xgboost=1.5.0=py39h06a4308_1
   - pycosat=0.6.3=py39h27cfd23_0
   - pycparser=2.21=pyhd3eb1b0_0
   - pyct=0.4.8=py_0
   - pyct-core=0.4.8=py_0
+  - pydotplus=2.0.2=py_1
   - pygments=2.11.2=pyhd3eb1b0_0
   - pymeeus=0.5.10=pyhd8ed1ab_0
   - pyopenssl=22.0.0=pyhd3eb1b0_0
@@ -214,6 +226,7 @@ dependencies:
   - sniffio=1.2.0=py39hf3d152e_2
   - sqlalchemy=1.4.27=py39h7f8727e_0
   - sqlite=3.37.2=hc218d9a_0
+  - statsmodels=0.13.0=py39h7f8727e_0
   - sysroot_linux-64=2.17=h57e8cba_10
   - tenacity=8.0.1=py39h06a4308_0
   - terminado=0.13.1=py39h06a4308_0
@@ -236,6 +249,7 @@ dependencies:
   - wheel=0.35.1=py_0
   - widgetsnbextension=3.5.2=py39hf3d152e_1
   - xarray=0.21.1=pyhd8ed1ab_0
+  - xgboost=1.5.0=py39h06a4308_1
   - xz=5.2.5=h7b6447c_0
   - yaml=0.2.5=h7b6447c_0
   - zeromq=4.3.4=h2531618_0
@@ -243,14 +257,47 @@ dependencies:
   - zlib=1.2.11=h7f8727e_4
   - zstd=1.4.9=haebb681_0
   - pip:
+    - absl-py==1.0.0
     - aiohttp==3.7.4
     - alpaca-trade-api==1.5.0
+    - alpha-vantage==2.3.1
+    - astunparse==1.6.3
     - async-timeout==3.0.1
+    - backtesting==0.3.3
+    - cachetools==5.0.0
     - chardet==3.0.4
     - deprecation==2.1.0
+    - finta==1.3
+    - flatbuffers==2.0
+    - gast==0.5.3
+    - google-auth==2.6.0
+    - google-auth-oauthlib==0.4.6
+    - google-pasta==0.2.0
+    - grpcio==1.44.0
+    - h5py==3.6.0
     - impyute==0.0.8
+    - keras==2.8.0
+    - keras-preprocessing==1.1.2
+    - libclang==13.0.0
     - msgpack==1.0.2
     - multidict==6.0.2
+    - multitasking==0.0.10
+    - oauthlib==3.2.0
+    - opt-einsum==3.3.0
+    - protobuf==3.19.4
+    - pyasn1==0.4.8
+    - pyasn1-modules==0.2.8
+    - requests-oauthlib==1.3.1
+    - rsa==4.8
+    - tensorboard==2.8.0
+    - tensorboard-data-server==0.6.1
+    - tensorboard-plugin-wit==1.8.1
+    - tensorflow==2.8.0
+    - tensorflow-io-gcs-filesystem==0.24.0
+    - termcolor==1.1.0
+    - tf-estimator-nightly==2.8.0.dev2021122109
     - websockets==9.1
+    - wrapt==1.13.3
     - yarl==1.7.2
+    - yfinance==0.1.70
 prefix: /opt/conda
