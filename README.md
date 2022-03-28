@@ -1,6 +1,6 @@
 # Trading Strategy Backtesting
 
-This project's aim is to determine the optimal ML model(s) for a given strategy. The model(s) chosen at the end of the notebook can be set as a constant, along with the strategy, allowing for further exploration of feature engineering and hyperparameter tuning.
+This project's aim is to lay the foundation for selecting the optimal ML model or strategy parameters. The model(s) chosen at the end of the notebook can be set as a constant, along with the strategy, allowing for further exploration of feature engineering and hyperparameter tuning.
 
 
 ## Technologies
@@ -11,6 +11,7 @@ The project utilizes python 3.9 along with the following packages:
 - [Pandas Data Reader](https://pandas-datareader.readthedocs.io/en/latest/) - Remote data access for pandas
 - [YFinance](https://pypi.org/project/yfinance/) - Open source tool for Yahoo's publicly available API, for education and research purposes
 - [Sklearn](https://scikit-learn.org/stable/index.html) - Machine learning tools for predictive data analysis
+- [Backtesting](https://kernc.github.io/backtesting.py/doc/backtesting/#gsc.tab=0) - Technical analysis based strategies backtester
 
 Other technologies that were utilized within this project are listed here:
 
@@ -27,6 +28,7 @@ Clone the repository to your desired location, and confirm that python 3.9 or gr
 ```python
 pip install pandas
 pip install pandas-datareader
+pip install backtesting
 pip install -U scikit-learn
 pip install yfinance
 pip install matplotlib
@@ -34,28 +36,21 @@ pip install matplotlib
 
 ## Getting Started
 
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+If you would like to run this remotely, reference [Dockerized-Trading-Research-Droplet](https://github.com/jmischung/Dockerized-Trading-Research-Droplet).
 
-import pandas_datareader.data as pdr
-import yfinance as yf
+__Model-Based Trading Strategy__
+To explore quickly testing different models for a set strategy, run the [backtest\_mbs\_lags.ipynb](https://github.com/jmischung/Trading-Strategy-Backtesting/blob/main/backtest_mbs_lags.ipynb).  In the "Retreive Data and Generate Features" section, specify the start date, end date and ticker you would like to analyze.
 
-from sklearn.preprocessing import RobustScaler
-from sklearn.pipeline import Pipeline
+At the end of the analysis you will be able to view the cumulative returns, annualized returns, and Sharpe Ratios for the tested models.
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.discriminant_analysis import (
-    LinearDiscriminantAnalysis as LDA,
-    QuadraticDiscriminantAnalysis as QDA
-)
-from sklearn.svm import LinearSVC, SVC
+![Financial Metrics Chart - Lags](Images/financialMetrics_mbs_lags.png)
 
-from sklearn.metrics import classification_report
-```
+__Technical Analysis Based Trading Strategy__
+To explore quickly testing a technical analysis strategy and optimzing its parameters, run the [backtest\_ta\_dmac.ipynb](https://github.com/jmischung/Trading-Strategy-Backtesting/blob/main/backtest_ta_dmac.ipynb).  In the "Retreive and Format Data" section, specify the start date, end date and ticker you would like to analyze.
 
+At the end of this analysis, you will be able to view the equity, profit and loss, and volume of the trading strategy.
+
+![Financial Metrics Chart - DMAC](Images/ta_finMetrics_dmac.png)
 
 
 ## Contributors
